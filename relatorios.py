@@ -1,10 +1,12 @@
 from datetime import datetime
-from data import patients, professionals, procedures
+from data import patients, professionals, procedures, archived_patients, archived_professionals
 
 def gerar_relatorio_txt():
     report = "=== Relatório do Sistema Hospitalar ===\n\n"
     report += f"Total de Pacientes: {len(patients)}\n"
     report += f"Total de Profissionais: {len(professionals)}\n\n"
+    report += f"Total de Pacientes Arquivados: {len(archived_patients)}\n"
+    report += f"Total de Profissionais Arquivados: {len(archived_professionals)}\n\n"
     
     report += "Procedimentos (CID):\n"
     for proc in procedures:
