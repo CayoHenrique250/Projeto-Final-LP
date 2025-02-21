@@ -6,7 +6,7 @@ from cirurgias import schedule_surgery, update_surgery, cancel_surgery
 from internacao import admit_patient, update_admission, discharge_patient
 from caixa import record_transaction, consult_transactions
 from convenios import add_insurance, update_insurance, consult_insurance, delete_insurance
-from relatorios import report_procedures, report_professionals_by_specialty, report_employee_presence
+from relatorios import gerar_relatorio_txt
 
 def main_menu():
     while True:
@@ -18,7 +18,7 @@ def main_menu():
         print("5. Internação")
         print("6. Caixa (Transações)")
         print("7. Cadastro de Convênios (ANS)")
-        print("8. Relatórios")
+        print("8. Gerar relatório TXT")
         print("0. Sair")
         choice = input("Escolha uma opção: ")
         
@@ -187,23 +187,8 @@ def insurance_menu():
             print("Opção inválida.")
 
 def reports_menu():
-    while True:
-        print("\n--- Relatórios ---")
-        print("1. Procedimentos Médicos (CID)")
-        print("2. Médicos por Especialidade")
-        print("3. Ponto de Presença dos Funcionários")
-        print("0. Voltar")
-        opt = input("Escolha uma opção: ")
-        if opt == "1":
-            report_procedures()
-        elif opt == "2":
-            report_professionals_by_specialty()
-        elif opt == "3":
-            report_employee_presence()
-        elif opt == "0":
-            break
-        else:
-            print("Opção inválida.")
+    gerar_relatorio_txt()
+    print("Relatório gerado com sucesso!")
 
 if __name__ == "__main__":
     main_menu()

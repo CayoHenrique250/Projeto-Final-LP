@@ -1,22 +1,21 @@
-from data import procedures, professionals
+from datetime import datetime
+from data import patients, professionals, procedures
 
-def report_procedures():
-    print("Relatório de Procedimentos Médicos (CID):")
+def gerar_relatorio_txt():
+    report = "=== Relatório do Sistema Hospitalar ===\n\n"
+    report += f"Total de Pacientes: {len(patients)}\n"
+    report += f"Total de Profissionais: {len(professionals)}\n\n"
+    
+    report += "Procedimentos (CID):\n"
     for proc in procedures:
-        print(f"CID {proc['cid']}: {proc['description']}")
-
-def report_professionals_by_specialty():
-    specialty_dict = {}
-    for prof in professionals:
-        spec = prof.get("specialty", "Desconhecido")
-        specialty_dict.setdefault(spec, []).append(prof)
-    print("Relatório de Médicos por Especialidade:")
-    for spec, profs in specialty_dict.items():
-        print(f"\nEspecialidade: {spec}")
-        for p in profs:
-            print(f" - ID {p['id']}: {p['name']}")
-
-def report_employee_presence():
-    print("Relatório de Ponto de Presença dos Funcionários:")
-    for prof in professionals:
-        print(f"Profissional: {prof['name']} (ID {prof['id']}) - Presença registrada")
+        report += f"  CID {proc['cid']}: {proc['description']}\n"
+    
+    now = datetime.now()
+    timestamp_str = now.strftime("%Y%m%d_%H%M%S")
+    file_name = f"relatorio_{timestamp_str}.txt"
+    
+    with open(file_name, "w", encoding="utf-8") as f:
+        f.write(report)
+    
+    print(f"Relatório gerado: {file_name}")
+    return file_name
