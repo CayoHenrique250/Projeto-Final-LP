@@ -20,7 +20,7 @@ Este projeto é um sistema de gestão hospitalar desenvolvido em Python de forma
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/seuusuario/hospital_system.git
+   git clone https://github.com/CayoHenrique250/Projeto-Final-LP.git
    cd Projeto-Final-LP
 Abra a pasta no VS Code:
 No VS Code, selecione File > Open Folder... e escolha a pasta hospital_system.</br>
