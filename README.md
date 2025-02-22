@@ -42,6 +42,6 @@ Siga as instruções exibidas no menu interativo para utilizar as funcionalidade
 
 - Para executar a Interface Gráfica (GUI), utilize o comando:
   ```bash
-   python.exe .\main.py
+   python.exe .\gui.py
 A interface gráfica será iniciada, permitindo a interação com o sistema através de janelas e botões.
 
